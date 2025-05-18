@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grid-spacing-size: 24px;
+
+  @media (max-width: 767px) {
+    --grid-spacing-size: 16px;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    @apply text-black dark:bg-dark dark:text-white;
+  }
+
+  body {
+    @apply before:pointer-events-none before:absolute before:inset-0 before:z-[-1] before:size-full before:bg-transparent before:transition-colors before:duration-300 before:content-[''];
+  }
+
+  body.body-mask {
+    @apply before:bg-black/16;
+  }
+
+  h2 {
+    @apply lowercase leading-none -tracking-[0.03em] typo-h2 md:-tracking-[0.04em];
+  }
+
+  h3 {
+    @apply leading-[calc(1em+8px)] -tracking-[0.03em] typo-h3;
+  }
+
+  h4 {
+    @apply leading-[calc(1em+8px)] -tracking-[0.02em] typo-h4 md:-tracking-[0.02em];
+  }
+
+  p {
+    @apply leading-[calc(1em+8px)] -tracking-[0.02em] typo-p;
+  }
+}
+
+@layer components {
+  .text-h1-big {
+    @apply leading-none -tracking-[0.04em] typo-h1-big md:-tracking-[0.05em];
+  }
+
+  .h2 {
+    @apply leading-none -tracking-[0.03em] typo-h2 md:-tracking-[0.04em];
+  }
+
+  .h3 {
+    @apply leading-[calc(1em+8px)] -tracking-[0.03em] typo-h3;
+  }
+
+  .h4 {
+    @apply leading-[calc(1em+8px)] -tracking-[0.02em] typo-h4 md:-tracking-[0.02em];
+  }
+
+  .p {
+    @apply leading-[calc(1em+8px)] -tracking-[0.02em] typo-p md:leading-none;
+  }
+
+  .h-numbers {
+    @apply leading-none -tracking-[0.04em] typo-h-numbers md:-tracking-[0.05em];
+  }
+
+  .base-link-hover {
+    @apply !bg-[length:100%_1px] !bg-left-bottom;
+  }
+
+  .base-link {
+    @apply bg-gradientLineStart bg-[length:0px_1px] bg-right-bottom bg-no-repeat transition-bg-size duration-300 ease-in-out hover:bg-[length:100%_1px] hover:bg-left-bottom;
+  }
+
+  .tag-gradient {
+    @apply before:absolute before:bottom-0 before:size-full before:bg-[linear-gradient(45deg,_#2E2BE9_0.06%,_#FF3A62_72.51%,_#EAC8AF_100%)] before:opacity-0 before:content-[""];
+  }
+
+  .tag-active {
+    @apply !text-white before:bg-[linear-gradient(45deg,_#2E2BE9_0.06%,_#FF3A62_72.51%,_#EAC8AF_100%)] before:opacity-100;
+  }
+
+  .tag-list {
+    @apply flex overflow-x-auto whitespace-nowrap scrollbar-none;
+  }
+
+  .tag-item {
+    @apply first:pl-grid last:pr-grid;
+  }
+
+  .dprofile-clip-path {
+    -webkit-clip-path: path(
+      'M14.758 0.8304C15.2156 -0.2768 16.7844 -0.2768 17.242 0.8304C17.626 1.7584 18.8548 1.9532 19.5064 1.1892C20.284 0.2772 21.7756 0.762 21.8688 1.9568C21.9468 2.958 23.0556 3.5228 23.9116 2.9976C24.9328 2.3708 26.2016 3.2928 25.9212 4.4576C25.686 5.434 26.566 6.3136 27.5424 6.0788C28.7072 5.7984 29.6292 7.0668 29.0024 8.0884C28.4772 8.9444 29.042 10.0532 30.0432 10.1312C31.238 10.2244 31.7224 11.716 30.8112 12.4936C30.0468 13.1456 30.2412 14.3744 31.1696 14.758C32.2768 15.2156 32.2768 16.7844 31.1696 17.242C30.2416 17.626 30.0468 18.8548 30.8108 19.5064C31.7228 20.284 31.238 21.7756 30.0432 21.8688C29.042 21.9468 28.4772 23.0556 29.0024 23.9116C29.6292 24.9328 28.7072 26.2016 27.5424 25.9212C26.566 25.686 25.6864 26.566 25.9212 27.5424C26.2016 28.7072 24.9332 29.6292 23.9116 29.0024C23.0556 28.4772 21.9468 29.042 21.8688 30.0432C21.7756 31.238 20.284 31.7224 19.5064 30.8112C18.8544 30.0468 17.6256 30.2412 17.242 31.1696C16.7844 32.2768 15.2156 32.2768 14.758 31.1696C14.374 30.2416 13.1452 30.0468 12.4936 30.8108C11.716 31.7228 10.2244 31.238 10.1312 30.0432C10.0532 29.042 8.9444 28.4772 8.0884 29.0024C7.0672 29.6292 5.7984 28.7072 6.0788 27.5424C6.314 26.566 5.434 25.6864 4.4576 25.9212C3.2928 26.2016 2.3708 24.9332 2.9976 23.9116C3.5228 23.0556 2.958 21.9468 1.9568 21.8688C0.762 21.7756 0.2776 20.284 1.1888 19.5064C1.9532 18.8544 1.7588 17.6256 0.8304 17.242C-0.2768 16.7844 -0.2768 15.2156 0.8304 14.758C1.7584 14.374 1.9532 13.1452 1.1892 12.4936C0.2772 11.716 0.762 10.2244 1.9568 10.1312C2.958 10.0532 3.5228 8.9444 2.9976 8.0884C2.3708 7.0672 3.2928 5.7984 4.4576 6.0788C5.434 6.314 6.3136 5.434 6.0788 4.4576C5.7984 3.2928 7.0668 2.3708 8.0884 2.9976C8.9444 3.5228 10.0532 2.958 10.1312 1.9568C10.2244 0.762 11.716 0.2776 12.4936 1.1888C13.1456 1.9532 14.3744 1.7588 14.758 0.8304Z'
+    );
+    clip-path: path(
+      'M14.758 0.8304C15.2156 -0.2768 16.7844 -0.2768 17.242 0.8304C17.626 1.7584 18.8548 1.9532 19.5064 1.1892C20.284 0.2772 21.7756 0.762 21.8688 1.9568C21.9468 2.958 23.0556 3.5228 23.9116 2.9976C24.9328 2.3708 26.2016 3.2928 25.9212 4.4576C25.686 5.434 26.566 6.3136 27.5424 6.0788C28.7072 5.7984 29.6292 7.0668 29.0024 8.0884C28.4772 8.9444 29.042 10.0532 30.0432 10.1312C31.238 10.2244 31.7224 11.716 30.8112 12.4936C30.0468 13.1456 30.2412 14.3744 31.1696 14.758C32.2768 15.2156 32.2768 16.7844 31.1696 17.242C30.2416 17.626 30.0468 18.8548 30.8108 19.5064C31.7228 20.284 31.238 21.7756 30.0432 21.8688C29.042 21.9468 28.4772 23.0556 29.0024 23.9116C29.6292 24.9328 28.7072 26.2016 27.5424 25.9212C26.566 25.686 25.6864 26.566 25.9212 27.5424C26.2016 28.7072 24.9332 29.6292 23.9116 29.0024C23.0556 28.4772 21.9468 29.042 21.8688 30.0432C21.7756 31.238 20.284 31.7224 19.5064 30.8112C18.8544 30.0468 17.6256 30.2412 17.242 31.1696C16.7844 32.2768 15.2156 32.2768 14.758 31.1696C14.374 30.2416 13.1452 30.0468 12.4936 30.8108C11.716 31.7228 10.2244 31.238 10.1312 30.0432C10.0532 29.042 8.9444 28.4772 8.0884 29.0024C7.0672 29.6292 5.7984 28.7072 6.0788 27.5424C6.314 26.566 5.434 25.6864 4.4576 25.9212C3.2928 26.2016 2.3708 24.9332 2.9976 23.9116C3.5228 23.0556 2.958 21.9468 1.9568 21.8688C0.762 21.7756 0.2776 20.284 1.1888 19.5064C1.9532 18.8544 1.7588 17.6256 0.8304 17.242C-0.2768 16.7844 -0.2768 15.2156 0.8304 14.758C1.7584 14.374 1.9532 13.1452 1.1892 12.4936C0.2772 11.716 0.762 10.2244 1.9568 10.1312C2.958 10.0532 3.5228 8.9444 2.9976 8.0884C2.3708 7.0672 3.2928 5.7984 4.4576 6.0788C5.434 6.314 6.3136 5.434 6.0788 4.4576C5.7984 3.2928 7.0668 2.3708 8.0884 2.9976C8.9444 3.5228 10.0532 2.958 10.1312 1.9568C10.2244 0.762 11.716 0.2776 12.4936 1.1888C13.1456 1.9532 14.3744 1.7588 14.758 0.8304Z'
+    );
+  }
+
+  .border-slide {
+    @apply gradient-border gradient-border-bottom relative border-y border-r border-black dark:border-white first:after:dark:bg-white;
+  }
+
+  .button-gradient {
+    @apply before:absolute before:inset-0  before:size-[inherit] before:rounded-[inherit] before:bg-main-gradient-2 before:opacity-0 before:transition-opacity before:duration-300 before:content-[''] after:absolute after:inset-0 after:size-[inherit] after:rounded-[inherit] after:bg-bg-grey after:transition-[transform,background-color] after:duration-300 after:content-[''] hover:before:opacity-100 hover:after:scale-95 hover:after:bg-white;
+  }
+
+  .button-gradient > * {
+    @apply relative z-10;
+  }
+}
+
+@layer utilities {
+  .ignore-dark {
+    @apply bg-white text-black;
+  }
+
+  .gradient-border {
+    @apply hover:gradient-border-active relative before:absolute before:left-0 before:block before:h-[2px] before:w-0 before:bg-main-gradient before:transition;
+  }
+
+  .gradient-border-active {
+    @apply w-full before:w-full;
+  }
+
+  .gradient-border-bottom {
+    @apply before:-bottom-px;
+  }
+
+  .gradient-border-top {
+    @apply before:-top-px;
+  }
+
+  .stretched-link::before {
+    @apply pointer-events-auto absolute inset-0 z-10 content-[""];
+  }
+
+  .grid-rows-min-content {
+    grid-template-rows: min-content;
+  }
+}

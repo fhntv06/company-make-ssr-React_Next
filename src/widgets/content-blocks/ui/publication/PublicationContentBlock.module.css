@@ -1,0 +1,56 @@
+.content {
+  @apply col-span-full grid grid-cols-4 gap-x-gap lg:grid-cols-6;
+}
+
+.content > p:not([class]),
+.content > p:global(.lead),
+.content > ul:not([class]),
+.content > ol:not([class]),
+.content > h3:not([class]),
+.content > h4:not([class]) {
+  @apply col-span-full lg:col-auto lg:col-start-2 lg:col-end-6;
+}
+
+.content > p:global(.lead) {
+  @apply mb-i80 typo-h3;
+}
+
+.content > p:not([class]) {
+  @apply mb-[calc(theme(spacing.i16)+theme(spacing.i16))] typo-h4 lg:mb-i24;
+}
+
+.content > ul:not([class]),
+.content > ol:not([class]) {
+  @apply mb-i64 flex flex-col gap-i24 typo-h4 lg:mb-i48;
+}
+
+.content > ul:not([class]) > li:not([class]) {
+  @apply relative pl-[calc(6px+24px)] before:absolute before:left-0 before:top-[calc(0.5em+1.5px)] before:block before:size-[6px] before:rounded-full before:bg-current before:content-[''] lg:pl-[calc(32px+6px)];
+}
+
+.content > ol:not([class]) {
+  counter-reset: list;
+}
+
+.content > ol:not([class]) > li:not([class]) {
+  @apply relative pl-[calc(6px+24px)] lg:pl-[calc(32px+6px)];
+}
+
+.content > ol:not([class]) > li:not([class])::before {
+  counter-increment: list;
+  content: counter(list) '.';
+  @apply absolute left-0;
+}
+
+.content > h3:not([class]),
+.content > h4:not([class]) {
+  @apply mb-i64 font-medium lg:mb-i32;
+}
+
+.content strong:not([class]) {
+  font-weight: 500;
+}
+
+.content a:not([class]) {
+  @apply bg-gradientLineStart bg-[length:0px_1px] bg-right-bottom bg-no-repeat transition-bg-size duration-300 ease-in-out hover:bg-[length:100%_1px] hover:bg-left-bottom;
+}

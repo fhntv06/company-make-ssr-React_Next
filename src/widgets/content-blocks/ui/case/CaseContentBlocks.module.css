@@ -1,0 +1,65 @@
+.content {
+  @apply col-span-full grid-subcontainer;
+}
+
+.content > h3:not([class]) {
+  @apply col-span-3 mb-i64 font-medium lg:mb-0;
+}
+
+.content > p:not([class]),
+.content > h4:not([class]),
+.content > p:global(.lead),
+.content > ul:not([class]),
+.content > ol:not([class]),
+.content > dl:not([class]) {
+  @apply col-span-4 lg:col-start-4;
+}
+
+.content > p:global(.lead-big) {
+  @apply col-span-4 col-start-1 mb-i80 mt-[calc(theme(spacing.i16)+theme(spacing.i16))] leading-[1em] typo-h2 lg:col-span-6 lg:my-i120;
+}
+
+.content p:global(.lead) {
+  @apply mb-i80 typo-h3;
+}
+
+.content > p:not([class]) {
+  @apply mb-[calc(theme(spacing.i16)+theme(spacing.i16))] typo-h4 lg:mb-i24;
+}
+
+.content strong {
+  @apply font-medium;
+}
+
+.content > h4:not([class]) {
+  @apply mb-i80 font-medium lg:mb-i32;
+}
+
+.content > ul:not([class]),
+.content > ol:not([class]) {
+  @apply mb-i80 flex flex-col gap-i24 typo-h4 lg:mb-i120;
+}
+
+.content > ul:not([class]) > li:not([class]) {
+  @apply relative pl-[calc(6px+24px)] before:absolute before:left-0 before:top-[calc(0.5em+1.5px)] before:block before:size-[6px] before:rounded-full before:bg-current before:content-[''] lg:pl-[calc(32px+6px)];
+}
+
+.content > ol:not([class]) {
+  @apply list-decimal;
+}
+
+.content > dl:not([class]) {
+  @apply mb-4 mt-[calc(theme(spacing.i16)+theme(spacing.i16))] flex flex-wrap gap-y-[calc(theme(spacing.i16)+theme(spacing.i16))] lg:mb-i64 lg:mt-i48 lg:gap-y-i64;
+}
+
+.content > dl:not([class]) > div {
+  @apply relative basis-full border-t border-light-grey pt-[calc(theme(spacing.i16)+theme(spacing.i16))] before:absolute before:top-0 before:hidden before:h-px before:w-full  before:bg-light-grey before:content-[''] last:pb-[calc(theme(spacing.i16)+theme(spacing.i16))] odd:before:w-[calc(100%-theme(spacing.gap)/2)] even:before:-ml-gap lg:basis-1/2 lg:border-0 lg:pt-i16 before:lg:block lg:last:pb-0 lg:even:pl-[calc(theme(spacing.gap)/2)];
+}
+
+.content > dl dt:not([class]) {
+  @apply font-medium typo-h2;
+}
+
+.content > dl dd:not([class]) {
+  @apply typo-h4;
+}
